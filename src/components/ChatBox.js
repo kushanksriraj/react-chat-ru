@@ -38,6 +38,12 @@ const ChatBox = () => {
     return () => unsubscribe;
   }, []);
 
+  useEffect(() => {
+    document
+      .getElementById("in-view-div")
+      .scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <main className="chat-box">
       <NavBar />
