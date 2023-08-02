@@ -4,7 +4,7 @@ import {
   collection,
   orderBy,
   onSnapshot,
-  limit,
+  limit
 } from "firebase/firestore";
 import { db } from "../firebase";
 import Message from "./Message";
@@ -30,6 +30,9 @@ const ChatBox = () => {
         (a, b) => a.createdAt - b.createdAt
       );
       setMessages(sortedMessages);
+      document
+        .getElementById("in-view-div")
+        .scrollIntoView({ behavior: "smooth" });
     });
     return () => unsubscribe;
   }, []);
@@ -41,7 +44,7 @@ const ChatBox = () => {
           <Message key={message.id} message={message} />
         ))}
       </div>
-      {/* when a new message enters the chat, the screen scrolls down to the scroll div */}
+      <div id="in-view-div"> </div>
       <span ref={scroll}></span>
       <SendMessage scroll={scroll} />
     </main>
