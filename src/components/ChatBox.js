@@ -9,6 +9,7 @@ import {
 import { db } from "../firebase";
 import Message from "./Message";
 import SendMessage from "./SendMessage";
+import NavBar from "./NavBar";
 
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);
@@ -39,6 +40,7 @@ const ChatBox = () => {
 
   return (
     <main className="chat-box">
+      <NavBar />
       <div className="messages-wrapper">
         {messages?.map((message) => (
           <Message key={message.id} message={message} />

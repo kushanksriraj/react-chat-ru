@@ -17,8 +17,9 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="nav-bar">
-      <h1>React Chat</h1>
+    // <nav className="nav-bar">
+    // <h1>React Chat</h1>
+    <div>
       {user ? (
         <button onClick={signOut} className="sign-out" type="button">
           Sign Out
@@ -34,7 +35,8 @@ const NavBar = () => {
           />
         </button>
       )}
-    </nav>
+      {/* // </nav> */}
+    </div>
   );
 };
 
