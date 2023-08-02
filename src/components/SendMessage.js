@@ -35,7 +35,7 @@ const SendMessage = ({ scroll }) => {
         placeholder="type message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        autoComplete={false}
+        autocomplete="off"
       />
       <button type="submit">Send</button>
     </form>
