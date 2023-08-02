@@ -17,7 +17,7 @@ const SendMessage = ({ scroll }) => {
       name: displayName,
       avatar: photoURL,
       createdAt: serverTimestamp(),
-      uid,
+      uid
     });
     setMessage("");
     scroll.current.scrollIntoView({ behavior: "smooth" });
@@ -35,6 +35,7 @@ const SendMessage = ({ scroll }) => {
         placeholder="type message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        autoComplete={false}
       />
       <button type="submit">Send</button>
     </form>
