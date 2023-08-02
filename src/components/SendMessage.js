@@ -3,10 +3,12 @@ import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const SendMessage = ({ scroll }) => {
-  const [message, setMessage] = useState("");
+  const [inputMessage, setMessage] = useState("");
 
   const sendMessage = async (event) => {
     event.preventDefault();
+    const message = event.target.elements.messageInput.value;
+    setMessage("");
     if (message.trim() === "") {
       alert("Enter valid message");
       return;
@@ -19,7 +21,6 @@ const SendMessage = ({ scroll }) => {
       createdAt: serverTimestamp(),
       uid
     });
-    setMessage("");
     scroll.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
@@ -33,7 +34,7 @@ const SendMessage = ({ scroll }) => {
         type="text"
         className="form-input__input"
         placeholder="type message..."
-        value={message}
+        value={inputMessage}
         onChange={(e) => setMessage(e.target.value)}
         autocomplete="off"
       />
